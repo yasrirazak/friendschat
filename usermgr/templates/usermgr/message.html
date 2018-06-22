@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--body-->
+<main class="container" role="main" style="height:100%;margin-top:8%;background-color:#ccccff;float:left;">
+	<div class="my-3 p-3 bg-white rounded box-shadow" style="padding-top:50%">
+  		{% for friend_name,message,date,friend_id in msg %}
+  			<div class="card-block bg-light text-dark" style="width:auto;">
+  				<p class="badge text-primary">
+    				<a href="/usermgr/chat/{{friend_id}}">
+						{{ friend_name }}
+					</a>
+    			</p>
+    			<p>	
+    				{{ message }}
+    			</p>
+    	
+    			<p class="float-right badge badge-info small">
+    				{{ date }}
+    			</p>
+	    	
+  			</div>
+  		{% endfor %}
+	</div>
+</main>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--body-->
+<main class="container" role="main" style="margin-top:8%;background-color:#ccccff;float:left;">
+	<div class="my-3 p-3 bg-white rounded box-shadow" style="padding-top:50%">
+	<!-- bagian form-->
+	<span>My Wall</span>
+
+	<div class="card bg-dark"">
+  		<form action="{% url 'usermgr:insert_status'%}" method="post">
+    	{% csrf_token %}
+    		<textarea class="" style="width:100%;height:100px" type="text" name="statusvar" id="1" value=""></textarea>
+    		<button class="btn btn-primary float-right" type="submit" style="float:top;width:auto;" value="update">post</button>	
+  		</form>
+  	</div>
+
+  	{% for status in status_friends_box %}
+    		<div class="form-control" style="width:auto;">
+    		{% if status.account_id in list_myid_box %}
+  				<b><p>{{ status.account }}</p></b><small style="float:right;">{{ status.pub_date }}</small>
+  			{% else %}
+  				<b><p class="text-primary">{{ status.account }}</p></b><small style="float:right;">{{ status.pub_date }}</small>
+  			{% endif %}
+    		{{ status.status }}
+    		{% if status.account_id in list_myid_box %}
+				<div class="card-block">
+					<a href="detail/{{status.id}}" class="badge badge-info">Edit</a>
+					<a href="delete/{{status.id}}" class="badge badge-warning">Delete</a>
+				</div>
+			{% endif %}
+    		</div>
+    		<span><p></p></span>
+    	
+  	{% endfor %}
+</div>
+</main>
+{% endblock %}

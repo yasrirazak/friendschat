@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--body-->
+<main class="container" role="main" style="height:100%;margin-top:8%;background-color:#ccccff;float:left;">
+	<div class="my-3 p-3 bg-white rounded box-shadow" style="padding-top:50%;height:100%;">
+  		<form class="form-signin" action="{% url 'usermgr:search'%}" method="post">
+		{% csrf_token %}
+		<input class="form-control" type="text" name="varkeyword" value=""/>
+		<button class="btn btn-sm btn-primary btn-block" type="submit" value="login">Search</button>
+		</form>
+	</div>
+
+	<div class="my-3 p-3 bg-white rounded box-shadow" style="padding-top:50%;height:100%;">
+		{% if find_list %}
+  		{% for user in find_list %}
+  			<p class="text-primary">
+  				<a href="/usermgr/profile/{{user.id}}">{{ user }}</a>
+  			</p>
+  		{% endfor %}
+  		{% else %}
+
+  		{% endif %}
+	</div>
+</main>
+{% endblock %}

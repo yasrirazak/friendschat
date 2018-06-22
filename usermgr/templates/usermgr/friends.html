@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--body-->
+<main class="container" role="main" style="height:100%;margin-top:8%;background-color:#ccccff;float:left;">
+	<div class="my-3 p-3 bg-white rounded box-shadow" style="padding-top:50%;height:100%;">
+	<p class="badge badge-info">Request Adding Friend</p>
+	
+	{% for b in list_wait_conf %}
+	<a href="/usermgr/profile/{{b.id}}"><p>{{ b.username }}</p></a>	
+	
+	{% endfor %}
+
+	</div>
+	<div class="my-3 p-3 bg-white rounded box-shadow" style="padding-top:50%;height:100%;">
+	<p class="badge badge-info">My List Friends</p>
+  	{% for a in friends_box %}
+  	<div class="card-block bg-light text-dark" style="width:auto;">
+  		<h5 class="h4 badge text-primary ">
+    		{{ a.username }}
+    	</p>
+  	</div>
+  	{% endfor %}
+	</div>
+</main>
+{% endblock %}

@@ -1,0 +1,20 @@
+from django.conf.urls import patterns,include, url
+from usermgr import views
+urlpatterns = patterns('',
+url(r'^$',views.index,name='index'),
+url(r'^signup',views.signup,name='signup'),
+url(r'^regist',views.regist,name='regist'),
+url(r'^home',views.home,name='home'),
+url(r'^message',views.message,name='message'),
+url(r'^insert_status',views.insert_status,name='insert_status'),
+url(r'^insert_message',views.insert_message,name='insert_message'),
+url(r'^edit_status',views.edit_status,name='edit_status'),
+url(r'^friends',views.friends,name='friends'),
+url(r'^chat/(?P<friend_id>\d+)',views.chat,name='chat'),
+url(r'^profile/(?P<user_id>\d+)',views.profile,name='profile'),
+url(r'^add/(?P<friend_id>\d+)',views.add,name='add'),
+url(r'^search',views.search,name='search'),
+url(r'^detail/(?P<status_id>\d+)',views.detail,name='detail'),
+url(r'^delete/(?P<status_id>\d+)',views.delete,name='delete'),
+url(r'^logout',views.logout,name='logout'),
+)

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="">
+  <link rel="stylesheet" href="{% static "usermgr/bootstrap.min.css" %}"/>
+  <link rel="stylesheet" href="{% static "usermgr/sign-in.css" %}"/>
+  <title>
+    Login Page
+  </title>
+</head>
+
+<body class="text-center">
+  <form class="form-signin" action="{% url 'usermgr:regist'%}" method="post">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+    <label>Username</label><input class="form-control" type="text" name="usernamevar" id="1" value=""/>
+    <label>Password	</label><input class="form-control" type="text" name="passwordvar" id="2" value=""/>
+    <p style="color:red;">{{warn}}</p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" value="signup">Sign Up</button>
+    <a href="/usermgr/"><p class="badge">have account?<p></a>
+    <small>© 2018 - yasrirazak@gmail.com</small>
+    <small class="badge">yasrirazak.github.io/jengkelin</small>
+  </form>
+</body>
+</html>

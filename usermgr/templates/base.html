@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="">
+  <link rel="stylesheet" href="{% static "usermgr/bootstrap.min.css" %}"/>
+  
+  <title>
+    Home
+  </title>
+<body style="background-color:#ccccff">
+<!--bagian navigasi atas-->
+  <header class="navbar-sm navbar-expand navbar-dark fixed-top flex-column flex-md-row bd-navbar" style="width:100%;background-color:#2255aa">
+    <div class="navbar-nav-scroll">
+      <nav class="navbar navbar-static-top">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="active">
+            <a class="navbar-brand" style="color:white" href="/usermgr/home">>></a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" style="color:white" href="/usermgr/message">messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" style="color:white" href="/usermgr/friends">friends</a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" style="color:white" href="/usermgr/search">search</a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" style="color:white" href="/usermgr/logout">logout</a>
+        </li>
+		
+      </ul>
+      </nav>
+    </div>
+  </header>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>  

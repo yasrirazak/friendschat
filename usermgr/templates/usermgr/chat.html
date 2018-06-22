@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--body-->
+
+<main class="container" role="main" style="height:100%;margin-top:8%;background-color:#ccccff;float:left;">
+<div class="my-3 p-3 bg-white rounded box-shadow" style="padding-top:50%">
+	<div class="card bg-dark">
+	<form action="{% url 'usermgr:insert_message'%}" method="post">
+    {% csrf_token %}
+    	<input type="hidden" name="idfriendvar" value="{{ list_friend_id_box }}"/>
+  		<textarea class="form-control" style="float:right;width:100%;height:200px;" type="text" name="msgvar" ></textarea>
+		<button class="btn btn-primary float-right" type="submit" style="width:auto;" value="edit">
+			send
+		</button>
+	</form>
+	</div>
+	
+  {% for msg in message_box %}
+    
+    <div class="form-control" style="width:auto;">
+      
+      {% if msg.account_id in list_myid_box %}
+     	 <b><p class="text-dark">{{ msg.account }}</p></b>
+      
+      {% else %}
+     	 <b><p class="text-primary">{{ msg.account }}</p></b>
+      
+      {% endif %}
+      
+      <p>{{ msg.message  }}</p>
+      <p class="badge badge-info float-right" style="">{{ msg.pub_date }}</p>
+	
+    </div>
+    
+  {% endfor %}
+  
+  
+</div>
+<br>
+
+</div>
+</div>
+</main>
+{% endblock %}

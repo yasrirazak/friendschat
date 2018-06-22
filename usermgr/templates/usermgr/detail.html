@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--bagian badan-->
+<main class="container" role="main" style="height:100%;margin-top:8%;background-color:#ccccff;float:left;">
+	<div class="my-3 p-3 bg-white rounded box-shadow card" style="padding-top:50%">
+	{% if obj %}
+	<form action="{% url 'usermgr:edit_status'%}" method="post">
+    	{% csrf_token %}
+  		  <input type="hidden" name="idstatusvar" value="{{ idstatus }}"/>
+		  <textarea class="form-control" style="float:right;width:100%;height:200px;" type="text" name="statusvar" id="1" value="">{{ obj.status }}</textarea>
+		  <div>-</div>
+		  <button class="btn btn-primary" type="submit" style="float:right;width:auto;" value="edit">Edit!</button>
+	</form>
+  	{% endif %}
+	</div>
+</main>
+{% endblock %}
